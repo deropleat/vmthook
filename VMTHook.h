@@ -32,10 +32,10 @@ public:
 	{
 		return reinterpret_cast<Fn>(this->OriginalVTF[FunctionIndex]);
 	}
-	inline bool TableIndexHook(void* new_function, const std::size_t FunctionIndex)
+	inline bool TableIndexHook(void* NewFunction, const std::size_t FunctionIndex)
 	{
 		if (FunctionIndex > this->TotalFuncs) return false;
-		this->CurrentVTF[FunctionIndex] = reinterpret_cast<std::uintptr_t>(new_function);
+		this->CurrentVTF[FunctionIndex] = reinterpret_cast<std::uintptr_t>(NewFunction);
 		return true;
 	}
 	inline bool TableIndexUnHook(const std::size_t FunctionIndex) 
